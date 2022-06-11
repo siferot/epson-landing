@@ -59,6 +59,7 @@ html,
 body {
   height: 100%;
   font-family: 'Montserrat', sans-serif;
+  scroll-padding-top: 110px;
 }
 
 .wrapper {
@@ -106,12 +107,21 @@ body {
   position: fixed;
   padding: 0 40px;
   background-color: lightcyan;
+  z-index: 2;
+}
+
+@media screen and (max-width: 950px) {
+  .header {
+    padding: 0 10px;
+  }
 }
 
 .header-img {
   border-radius: 5px;
   -webkit-transition: background-color .3s;
   transition: background-color .3s;
+  min-width: 200px;
+  height: auto;
 }
 
 .header-img:hover {
@@ -119,6 +129,7 @@ body {
 }
 
 .menu__list {
+  z-index: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -127,6 +138,12 @@ body {
       -ms-flex-direction: row;
           flex-direction: row;
   gap: 40px;
+}
+
+@media screen and (max-width: 950px) {
+  .menu__list {
+    gap: 10px;
+  }
 }
 
 .nav-link {
@@ -164,12 +181,59 @@ body {
   }
 }
 
+.character__spec {
+  position: relative;
+}
+
+.character__spec::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 80%;
+  left: -20%;
+  top: 10%;
+  border: 2px #2d4f9e solid;
+  border-radius: 3px;
+}
+
+@media screen and (max-width: 800px) {
+  .character__spec::before {
+    height: 2px;
+    width: 80%;
+    top: -10%;
+    left: 10%;
+  }
+  .character__spec::after {
+    content: "";
+    position: absolute;
+    height: 2px;
+    width: 80%;
+    left: 10%;
+    border: 2px #2d4f9e solid;
+    border-radius: 3px;
+  }
+}
+
 .character__spec-title {
   margin-bottom: 10px;
 }
 
+@media screen and (max-width: 800px) {
+  .character__spec-title {
+    margin: 10px auto;
+    display: block;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+  }
+}
+
 .character__text {
   grid-column: 1 / -1;
+}
+
+.specs__list {
+  margin-bottom: 20px;
 }
 
 @media screen and (max-width: 800px) {
@@ -177,15 +241,83 @@ body {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
   }
+}
+
+.features__section-text {
+  margin-bottom: 20px;
+}
+
+.price__card-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 50px;
+}
+
+.price__card {
+  border: 2px #2d4f9e solid;
+  padding: 20px;
+  border-radius: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 10px;
+}
+
+.price__card-title {
+  color: #2d4f9e;
+}
+
+.price__card-shop {
+  display: block;
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.price__card-img {
+  margin: auto;
+}
+
+.price__card-cost {
+  display: block;
+  margin-left: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.review__section-video {
+  display: block;
+  margin: 20px auto;
 }
 
 .footer {
   background-color: #d0f3f7;
   padding: 20px 40px;
+}
+
+.footer-title {
+  color: #2d4f9e;
+  margin-bottom: 10px;
+  padding-left: 20px;
 }
 
 .form__input-email {
@@ -215,5 +347,39 @@ body {
 
 .form__btn-submit:hover {
   background-color: rgba(173, 216, 230, 0.7);
+}
+
+h2 {
+  margin: 20px auto;
+  background-color: lightcyan;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 10px 30px;
+  color: #2d4f9e;
+  position: relative;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  left: -100%;
+  border: 2px lightcyan solid;
+  border-radius: 3px;
+}
+
+h2::after {
+  content: "";
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  top: 50%;
+  right: -100%;
+  border: 2px lightcyan solid;
+  border-radius: 3px;
 }
 /*# sourceMappingURL=styles.css.map */
